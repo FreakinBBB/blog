@@ -1,2 +1,2 @@
 # blog
-Blog where I put my ides
+Blog where I put my ideas
