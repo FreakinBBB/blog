@@ -1,0 +1,283 @@
+/* ------------------------------------------------------------------
+   un blog personale — nello spirito di sinceyouarrived.world
+   sfondo quasi nero, serif calda, tanto silenzio attorno alle parole
+------------------------------------------------------------------- */
+
+:root {
+  --bg: #0d0d0b;
+  --ink: #e8e4da;
+  --ink-dim: #9a958a;
+  --ink-faint: #5f5b52;
+  --accent: #d9b98c;
+  --rule: #26241f;
+  --measure: 34rem;
+  --serif: "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --sans: "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+/* --- struttura ---------------------------------------------------- */
+
+.page {
+  width: min(var(--measure), calc(100% - 3rem));
+  margin: 0 auto;
+  flex: 1;
+}
+
+/* --- testata ------------------------------------------------------ */
+
+header.site {
+  padding: 3.5rem 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+header.site .wordmark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-dim);
+  text-decoration: none;
+  transition: color .4s;
+}
+header.site .wordmark:hover { color: var(--ink); }
+
+nav.site {
+  display: flex;
+  gap: 1.4rem;
+}
+nav.site a {
+  font-family: var(--sans);
+  font-size: .68rem;
+  font-weight: 400;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-decoration: none;
+  transition: color .4s;
+}
+nav.site a:hover,
+nav.site a[aria-current="page"] { color: var(--ink); }
+
+/* --- apertura ----------------------------------------------------- */
+
+.hero {
+  padding: 7rem 0 5rem;
+}
+
+.hero h1 {
+  font-weight: 300;
+  font-size: clamp(2.1rem, 6vw, 3.1rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero .sotto {
+  margin-top: 2.2rem;
+  color: var(--ink-dim);
+  font-size: 1.05rem;
+  max-width: 28rem;
+}
+
+/* la riga viva: quanto tempo sei qui */
+.presenza {
+  margin-top: 4.5rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: .78rem;
+  letter-spacing: .06em;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  line-height: 2;
+}
+.presenza strong {
+  color: var(--ink-dim);
+  font-weight: 400;
+}
+
+/* --- indice dei post ---------------------------------------------- */
+
+.indice {
+  padding: 2rem 0 6rem;
+}
+
+.indice > h2 {
+  font-family: var(--sans);
+  font-size: .68rem;
+  font-weight: 400;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 2.5rem;
+}
+
+.indice ol {
+  list-style: none;
+}
+
+.indice li + li {
+  margin-top: 2.4rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--rule);
+}
+
+.indice time {
+  display: block;
+  font-family: var(--sans);
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: .5rem;
+}
+
+.indice a.titolo {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color .4s;
+}
+.indice a.titolo:hover { color: var(--accent); }
+.indice a.titolo::after { content: "."; color: var(--accent); }
+
+.indice p.estratto {
+  margin-top: .6rem;
+  color: var(--ink-dim);
+  font-size: 1.02rem;
+}
+
+/* --- pagina del post ---------------------------------------------- */
+
+article.post { padding: 6rem 0 5rem; }
+
+article.post .meta {
+  font-family: var(--sans);
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1.6rem;
+}
+
+article.post h1 {
+  font-weight: 300;
+  font-size: clamp(1.9rem, 5.5vw, 2.7rem);
+  line-height: 1.3;
+  margin-bottom: 3rem;
+}
+article.post h1::after { content: "."; color: var(--accent); }
+
+article.post p { margin: 1.6em 0; }
+
+article.post p.capoverso::first-letter {
+  font-size: 1.6em;
+  line-height: 1;
+}
+
+article.post em { color: var(--accent); font-style: italic; }
+
+article.post hr {
+  border: 0;
+  margin: 3.5rem auto;
+  text-align: center;
+  height: auto;
+}
+article.post hr::after {
+  content: "· · ·";
+  color: var(--ink-faint);
+  letter-spacing: .8em;
+  font-size: .9rem;
+}
+
+article.post blockquote {
+  margin: 2.5em 0;
+  padding-left: 1.4em;
+  border-left: 1px solid var(--accent);
+  font-style: italic;
+  color: var(--ink-dim);
+}
+
+.post-nav {
+  padding: 0 0 6rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  font-size: 1rem;
+}
+.post-nav a {
+  color: var(--ink-dim);
+  text-decoration: none;
+  font-style: italic;
+  transition: color .4s;
+}
+.post-nav a:hover { color: var(--ink); }
+
+/* --- piè di pagina ------------------------------------------------ */
+
+footer.site {
+  border-top: 1px solid var(--rule);
+  padding: 2.2rem 0 3rem;
+  font-family: var(--sans);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: var(--ink-faint);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+footer.site .page { flex: none; width: min(var(--measure), calc(100% - 3rem)); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+footer.site em { font-family: var(--serif); font-style: italic; }
+
+/* --- apparizione lenta -------------------------------------------- */
+
+.appari {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 1.4s ease, transform 1.4s ease;
+}
+.appari.visto {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .appari { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 1.08rem; }
+  .hero { padding: 5rem 0 4rem; }
+}
